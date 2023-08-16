@@ -1,0 +1,16 @@
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.instagram-heading {
+  box-sizing: border-box;
+  font-family: "Cookie", cursive;
+  font-size: 5rem;
+  font-weight: 400;
+  color: black;
+}
+
+.logo {
+  width: 45px;
+}

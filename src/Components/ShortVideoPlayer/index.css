@@ -1,0 +1,109 @@
+
+.short-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .short-video-player {
+    width: 100%;
+    object-fit: contain;
+  }
+  
+  .progressbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 1vh;
+    background-color: rgb(218, 218, 218);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .progress-line {
+    position: relative;
+    top: 0;
+    height: 1vh;
+    /* background: linear-gradient(0.25turn, #9d09f5, #fc00cd, #f3349d, #ff7301); */
+    background-color: white;
+    box-shadow: 0 0 50px #ccc;
+    font-size: 2rem;
+    transition: all 0.5s;
+  }
+  
+  /* 
+  .progress-line::after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(100% - 5px);
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      right: 100%;
+      width: 6px;
+      height: 6px; 
+  }
+  */
+  
+  .short-video-button-container {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#ffffff00, #000000); /* display: none; */
+    transition: all 0.5s;
+  }
+  
+  /* .video-item:hover .short-video-button-container {
+    display: block;
+    position: absolute;
+    transition: all 0.4s;
+    bottom: 0;
+  
+  } */
+  .play-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+  
+    animation: zoom 1s;
+  }
+  
+  .short-video-button-icon {
+    font-size: 24px;
+  }
+  
+  .short-video-container .username {
+    color: white;
+  }
+  
+  .mute-unmute-button {
+    position: absolute;
+    top: 5%;
+    right: 10px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 50%;
+    padding: 6px;
+    border: none;
+  }
+  
+  .unmute-icon,
+  .mute-icon {
+    font-size: 2rem;
+  }
+  
+  .short-videos .follow-button {
+    margin-left: 10px;
+    color: white;
+  }

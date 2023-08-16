@@ -1,0 +1,21 @@
+.user-profile-card{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+
+.user-card-left{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.published-ago{
+    font-size: 1.4rem;
+    color: rgb(104, 104, 104);
+}

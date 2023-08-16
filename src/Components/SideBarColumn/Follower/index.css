@@ -1,0 +1,26 @@
+.suggested-follower-list {
+  border: 2px solid rgb(201, 201, 201);
+  border-radius: 5px;
+ 
+}
+
+.suggested-follower-container {
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .suggested-follower-list {
+    /* From https://css.glass */
+    background: rgba(239, 239, 248, 0.58);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(177, 177, 177, 0.137);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(169, 183, 204, 0.9);
+  }
+}

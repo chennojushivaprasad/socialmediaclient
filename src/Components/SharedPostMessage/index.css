@@ -1,0 +1,9 @@
+.share-post-message{
+    height: 100%;
+    width: 100%;
+}
+
+.share-post-message .post-card-media{
+    height: calc(100% - 50px);
+    background-color: blueviolet;
+}

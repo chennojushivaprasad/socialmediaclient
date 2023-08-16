@@ -1,0 +1,17 @@
+.signout-button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.signout-button .signout-icon{
+  font-size: 2.7rem;
+}
+
+.signout{
+    font-size: 1.6rem;
+}

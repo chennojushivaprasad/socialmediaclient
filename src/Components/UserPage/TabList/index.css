@@ -1,0 +1,17 @@
+.tab-list{
+    padding: 5px 0;
+}
+
+.tab-button{
+    border: none;
+    font-size: 1.8rem;
+     background-color: transparent;
+     display: flex;
+     align-items: center;
+     padding: 4px;
+}
+
+.active-tab{
+    padding: 3px;
+    border-top: 1px solid black;
+}

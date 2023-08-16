@@ -1,0 +1,41 @@
+.post-caption-container{
+
+    height: 350px;
+    margin:  0;
+    box-shadow: rgba(177, 177, 177, 0.15) 0px 3px 3px 0px;
+ 
+}
+.post-caption-editable{
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    border: 1px solid rgb(182, 182, 182);
+   
+    outline: none;
+}
+
+.emojis-content-length-container{
+    margin: 0px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+
+}
+
+.upload-details-container .user-name{
+    font-size: 1.6rem;
+}
+
+.characters-count{
+    font-size: 1.5rem;
+}
+
+@media (max-width:576px) {
+    .post-caption-container{
+        height: 100px;
+    }
+}

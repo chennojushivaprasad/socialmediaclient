@@ -1,0 +1,60 @@
+.post {
+  box-sizing: border-box;
+  padding: 3px;
+  position: relative;
+}
+
+.post-container {
+  width: 100%;
+  height: 100%;
+}
+.post-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.post-delete-button {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: white;
+  outline: none;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px 1px rgba(145, 145, 145, 0.199);
+
+
+}
+
+.post-delete-button .delete-icon{
+  font-size: 2rem;
+}
+
+.post-video{
+  object-position: 50%;
+}
+
+@media (min-width: 962px) {
+  .post {
+    width: 33%;
+    height: 320px;
+  }
+}
+
+@media (max-width: 962px) {
+  .post {
+    width: 50%;
+    height: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  .post {
+    width: 100%;
+    height: 220px;
+  }
+}

@@ -1,0 +1,28 @@
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  }
+  
+  .close-modal-button .close-modal-icon {
+    font-size: 2rem;
+  }
+
+
+  @media (max-width:576px) {
+    .close-modal-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;}
+  }

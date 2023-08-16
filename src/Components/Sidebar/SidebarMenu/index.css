@@ -1,0 +1,45 @@
+.sidebar-list {
+  width: 100%;
+}
+
+.sidebar-menu-button {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+}
+
+.sidebar-menu-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.side-menu-icon {
+  font-size: 24px;
+}
+
+.side-menu-name {
+  font-size: 1.7rem;
+}
+
+.active-event .side-menu-name {
+  display: none;
+}
+
+.active-event .sidebar-menu-button {
+  justify-content: center;
+}
+
+@media (max-width: 1268px) {
+  .sidebar-menu-button,
+  .more-button {
+    justify-content: center;
+  }
+
+  .side-menu-name {
+    display: none;
+  }
+}

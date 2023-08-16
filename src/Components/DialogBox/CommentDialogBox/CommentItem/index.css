@@ -1,0 +1,22 @@
+.comment-item{
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px;
+  /*
+   : center; */
+}
+
+.comment-item .comment-container{
+ padding: 0 1px;
+ display: flex;
+ justify-content: flex-start;
+}
+.username-comment-container{
+    display: flex;
+    flex-direction: column;
+}
+.comment-text{
+    font-size: 1.5rem;
+}
