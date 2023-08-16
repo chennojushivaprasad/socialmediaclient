@@ -40,11 +40,11 @@ const Socket = (props) => {
   };
 
 
-  useEffect(() => {
-    if (incomingCallStatus) {
-      acceptCall(incomingCallDetails);
-    }
-  }, [incomingCallStatus, acceptCall, incomingCallDetails]);
+  // useEffect(() => {
+  //   if (incomingCallStatus) {
+  //     acceptCall(incomingCallDetails);
+  //   }
+  // }, [incomingCallStatus, acceptCall, incomingCallDetails]);
 
   const accessVideoAndAudio = async () => {
     const openMediaDevices = async (constraints) => {
