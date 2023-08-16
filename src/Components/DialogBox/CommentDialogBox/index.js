@@ -33,8 +33,7 @@ const CommentDialogBox = () => {
       (refMedia.current?.naturalWidth / refMedia?.current?.naturalHeight) *
       (screenHeight - 20);
     setmaxMediaWidth(width);
-  }, [maxMediaWidth]);
-
+  }, [maxMediaWidth, screenHeight]);
 
   if (activePost) {
     const { mediaType, mediaUrl } = media;

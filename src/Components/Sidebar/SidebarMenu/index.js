@@ -36,11 +36,8 @@ const SidebarMenu = (props) => {
         {renderList()}
       </Link>
     );
-  } else {
-    {
-      return renderList();
-    }
   }
+  return renderList();
 };
 
 export default SidebarMenu;

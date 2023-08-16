@@ -77,7 +77,7 @@ const Registration = () => {
       setRegisteredSuccessFully(false);
     }, 3000); // Simulating a 2-second registration process
 
-    const data = await response.json();
+     await response.json();
   };
 
   return (

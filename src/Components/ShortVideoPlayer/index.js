@@ -13,7 +13,8 @@ import {
 import UserDetails from "../UserDetails";
 
 const ShortVideoPlayer = (props) => {
-  const { isMuted, setMuteState, volume, setVolume,activeMenuId } = useContext(AppContext);
+  const { isMuted, setMuteState, volume, setVolume, activeMenuId } =
+    useContext(AppContext);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -56,7 +57,7 @@ const ShortVideoPlayer = (props) => {
         stopVideo();
       }
     }
-  }, [activeVideo,activeMenuId]);
+  }, [activeVideo, activeMenuId]);
 
   const stopVideo = () => {
     videoRef.current.currentTime = 0;
@@ -90,7 +91,7 @@ const ShortVideoPlayer = (props) => {
     // return () => {
     //   videoRef.current.removeEventListener("ended", end);
     // };
-  }, []);
+  }, [activeVideo, nextVideo]);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -101,7 +102,10 @@ const ShortVideoPlayer = (props) => {
   };
 
   return (
-    <div className="short-video-container" style={{ height: height, width: width }}>
+    <div
+      className="short-video-container"
+      style={{ height: height, width: width }}
+    >
       <video
         webkit-playsinline="true"
         playsinline="true"

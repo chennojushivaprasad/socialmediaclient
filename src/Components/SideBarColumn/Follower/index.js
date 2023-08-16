@@ -6,17 +6,18 @@ import "./index.css";
 
 const Follower = ({ userId }) => {
   const [followerDetails, setFollowerUserDetails] = useState([]);
-  const getUserData = async () => {
-    const response = await fetchFromApi(`/api/user/${userId}`, "GET");
-    if (response.ok) {
-      const data = await response.json();
-      setFollowerUserDetails(data?.user);
-    }
-  };
 
   useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetchFromApi(`/api/user/${userId}`, "GET");
+      if (response.ok) {
+        const data = await response.json();
+        setFollowerUserDetails(data?.user);
+      }
+    };
+
     getUserData();
-  }, []);
+  }, [userId]);
 
   return (
     <li className="suggested-follower-list">

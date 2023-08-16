@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
@@ -165,7 +165,6 @@ function App() {
     searchResults,
     setSearchResults,
     uploadPercent,
-    uploadStatus,
     handleUpload,
     isValidUser,
     setIsValidUser,

@@ -24,23 +24,23 @@ const SearchBar = () => {
 
   const searchValue = useDebounceValue(searchInput, 300);
 
-  const getSearchData = async (value) => {
-    const respone = await fetchFromApi(`/api/user?search=${value}`, "GET");
-    if (respone.ok) {
-      const data = await respone.json();
-      setSearchResults(data);
-    } else {
-      setSearchResults([]);
-    }
-  };
-
   useEffect(() => {
+    const getSearchData = async (value) => {
+      const respone = await fetchFromApi(`/api/user?search=${value}`, "GET");
+      if (respone.ok) {
+        const data = await respone.json();
+        setSearchResults(data);
+      } else {
+        setSearchResults([]);
+      }
+    };
+
     if (searchValue !== "") {
       getSearchData(searchValue);
     } else {
       setSearchResults([]);
     }
-  }, [searchValue]);
+  }, [searchValue, setSearchResults]);
 
   const handleSearchInput = (event) => {
     setSearchInput(event.target.value);

@@ -21,19 +21,20 @@ const UploadingProgressBar = () => {
     );
   };
 
-  switch (uploadStatus?.type) {
-    case "Success":
-      return uploadedSuccessFully();
-
-    case "Failed":
-      return uploadedFailed();
-  }
-
-  return (
+  const renderProgressBar = () => (
     <div class="progress uploading-progress-bar">
       <div class="progress-bar" style={{ width: `${uploadPercent}%` }}></div>
     </div>
   );
+
+  switch (uploadStatus?.type) {
+    case "Success":
+      return uploadedSuccessFully();
+    case "Failed":
+      return uploadedFailed();
+    default:
+      return renderProgressBar();
+  }
 };
 
 export default UploadingProgressBar;

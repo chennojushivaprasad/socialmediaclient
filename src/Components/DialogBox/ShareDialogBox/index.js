@@ -68,7 +68,7 @@ const ShareDialogBox = () => {
     );
 
     if (response.ok) {
-      const data = await response.json();
+      await response.json();
       setToastStatus(true);
       setMessageSent(true);
       removeToast();

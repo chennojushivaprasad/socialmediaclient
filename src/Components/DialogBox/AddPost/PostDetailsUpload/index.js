@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./index.css";
 // import 'emoji-mart/css/emoji-mart.css'; // Import the emoji-mart styles
 // import { Picker } from "emoji-mart";

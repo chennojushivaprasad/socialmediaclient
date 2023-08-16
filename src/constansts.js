@@ -1,17 +1,25 @@
 // import { GrHomeRounded } from "react-icons/gr";
-import { BiMessageSquareAdd, BiSolidMessageSquareAdd, BiSolidUserCircle, BiUserCircle } from "react-icons/bi";
-import {  MdHome, MdOutlineHome } from "react-icons/md";
 import {
-  BsCameraReels,
-  BsCameraReelsFill,
-} from "react-icons/bs";
-import { RiMessageFill, RiMessageLine, RiNotification2Line, RiNotification4Fill, RiNotification4Line, RiSearch2Fill, RiSearch2Line } from "react-icons/ri";
+  BiMessageSquareAdd,
+  BiSolidMessageSquareAdd,
+  BiSolidUserCircle,
+  BiUserCircle,
+} from "react-icons/bi";
+import { MdHome, MdOutlineHome } from "react-icons/md";
+import { BsCameraReels, BsCameraReelsFill } from "react-icons/bs";
+import {
+  RiMessageFill,
+  RiMessageLine,
+  RiNotification4Fill,
+  RiNotification4Line,
+  RiSearch2Fill,
+  RiSearch2Line,
+} from "react-icons/ri";
 // import { LiaHomeSolid } from "react-icons/li";
 import { CgProfile } from "react-icons/cg";
 import Cookies from "js-cookie";
 
-
-const userId = Cookies.get("userId")
+const userId = Cookies.get("userId");
 export const categoryMenus = [
   {
     icon: <MdOutlineHome className="side-menu-icon" />,
@@ -64,7 +72,7 @@ export const categoryMenus = [
   },
   {
     icon: <BiUserCircle className="side-menu-icon" />,
-    activeIcon:<BiSolidUserCircle className="side-menu-icon"/>,
+    activeIcon: <BiSolidUserCircle className="side-menu-icon" />,
     name: "Profile",
     path: `/user/${userId}`,
     menuId: "PROFILE",
@@ -77,24 +85,23 @@ export const bottomNavigationMenus = [
     icon: (
       <MdOutlineHome className={`bottom-navbar-menu-icon active-menu-icon`} />
     ),
-    activeIcon: <MdHome className="bottom-navbar-menu-icon active-menu-icon"/>,
+    activeIcon: <MdHome className="bottom-navbar-menu-icon active-menu-icon" />,
     name: "Home",
     path: null,
     menuId: "HOME",
   },
   {
     icon: <RiSearch2Line className={`bottom-navbar-menu-icon `} />,
-    activeIcon:<RiSearch2Fill className="bottom-navbar-menu-icon  active-menu-icon"/>,name: "Search",
+    activeIcon: (
+      <RiSearch2Fill className="bottom-navbar-menu-icon  active-menu-icon" />
+    ),
+    name: "Search",
     path: null,
     menuId: "SEARCH",
   },
 
   {
-    icon: (
-      <BiMessageSquareAdd
-        className={`bottom-navbar-menu-icon `}
-      />
-    ),
+    icon: <BiMessageSquareAdd className={`bottom-navbar-menu-icon `} />,
     activeIcon: (
       <BiSolidMessageSquareAdd
         className={`bottom-navbar-menu-icon  active-menu-icon`}
@@ -106,19 +113,17 @@ export const bottomNavigationMenus = [
   },
 
   {
-    icon: (
-      <BsCameraReels className={`bottom-navbar-menu-icon  `} />
+    icon: <BsCameraReels className={`bottom-navbar-menu-icon  `} />,
+    activeIcon: (
+      <BsCameraReelsFill className="bottom-navbar-menu active-menu-icon" />
     ),
-    activeIcon: <BsCameraReelsFill className="bottom-navbar-menu active-menu-icon"  />,
     name: "Reels",
     path: "/reels",
     menuId: "REELS",
   },
 
   {
-    icon: (
-      <CgProfile className={`bottom-navbar-menu-icon`} />
-    ),
+    icon: <CgProfile className={`bottom-navbar-menu-icon`} />,
     activeIcon: (
       <CgProfile className={`bottom-navbar-menu-icon   active-menu-icon`} />
     ),
@@ -128,4 +133,3 @@ export const bottomNavigationMenus = [
   },
   // Add more objects as needed
 ];
-

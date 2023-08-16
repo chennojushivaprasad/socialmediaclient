@@ -1,10 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import fetchFromApi from "../../fetchFromApi";
 import { useParams } from "react-router-dom";
 import TabList from "./TabList";
 import PostImage from "./PostMedia";
-import { AppContext } from "../../Context";
 import SignOut from "../Buttons/SignoutButton";
 
 const tabs = [
@@ -13,7 +12,6 @@ const tabs = [
 ];
 
 export const UserDetailsPage = () => {
-  const { setActiveMenuId } = useContext(AppContext);
   const [activeTab, setActiveTab] = useState(tabs[0].tabId);
   const { id: userId } = useParams();
   const [userDetails, setUserDetails] = useState(null);
@@ -59,12 +57,12 @@ export const UserDetailsPage = () => {
     );
   };
   const renderActiveTabData = () => {
-    switch (activeTab) {
-      case tabs[0].tabId:
-        return renderPosts();
+    if (activeTab === tabs[0].tabId) {
+      return renderPosts();
+    }
 
-      case tabs[1].tabId:
-        return renderReels();
+    if (activeTab === tabs[1].tabId) {
+      return renderReels();
     }
   };
 

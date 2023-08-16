@@ -57,7 +57,7 @@ const Socket = (props) => {
     if (incomingCallStatus) {
       acceptCall(incomingCallDetails);
     }
-  }, [incomingCallStatus]);
+  }, [incomingCallStatus, acceptCall, incomingCallDetails]);
 
   const accessVideoAndAudio = async () => {
     const openMediaDevices = async (constraints) => {

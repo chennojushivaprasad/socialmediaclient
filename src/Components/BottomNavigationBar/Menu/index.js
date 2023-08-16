@@ -26,11 +26,8 @@ const Menu = ({ isActiveMenu, category }) => {
         {renderList()}
       </Link>
     );
-  } else {
-    {
-      return renderList();
-    }
   }
+  return renderList();
 };
 
 export default Menu;

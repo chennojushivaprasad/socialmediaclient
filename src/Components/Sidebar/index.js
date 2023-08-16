@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import SidebarMenu from "./SidebarMenu";
 import { categoryMenus } from "../../constansts";
 import "./index.css";
-import { CgMoreO } from "react-icons/cg";
 import { AppContext } from "../../Context";
 import Logo from "../Logo";
 import SignOut from "../Buttons/SignoutButton";

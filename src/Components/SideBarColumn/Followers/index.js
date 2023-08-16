@@ -17,12 +17,18 @@ const Followers = () => {
     );
   };
 
-  const renderNoFollowers = ()=>{
-    return <div className="no-followers-container">
-       <img className="no-followers-image" src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_640.png"/>
-       <p className="no-followers">No Followers</p>
-    </div>
-  }
+  const renderNoFollowers = () => {
+    return (
+      <div className="no-followers-container">
+        <img
+          className="no-followers-image"
+          src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_640.png"
+          alt=""
+        />
+        <p className="no-followers">No Followers</p>
+      </div>
+    );
+  };
 
   if (accountUser?.following) {
     const { followers } = accountUser;

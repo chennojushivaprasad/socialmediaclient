@@ -1,16 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./index.css";
-import Cookies from "js-cookie";
 import { AppContext } from "../../../../Context";
 import PostSubmit from "../PostSubmit";
 import CloseModalButton from "../../../Buttons/CloseModal";
 
-
-const userId = Cookies.get("userId");
-
 const CreatePost = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const { setActiveModalId, uploadStatus } = useContext(AppContext);
+  const { setActiveModalId } = useContext(AppContext);
   const [caption, setCaption] = useState("");
 
   const handleDragOver = (event) => {

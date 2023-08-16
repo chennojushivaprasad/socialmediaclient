@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
-import Cookies from "js-cookie";
 import fetchFromApi from "../../fetchFromApi";
 import PostCardButtons from "../Buttons/PostCardButtons";
 import PostCardUserProfie from "../Post/PostCardUserProfile";
@@ -21,7 +20,7 @@ export const PostCard = ({ post }) => {
         setPostDetails(data);
         setLoadingStatus(false);
       });
-  }, [postId]);
+  }, [postId,accountUser]);
 
   const renderList = () => {
     const { userName, userImage, media, meta, date, userId } = postDetails;

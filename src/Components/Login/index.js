@@ -60,7 +60,7 @@ const Login = () => {
       };
       getUserData();
     }
-  }, [isValidUser, userId]);
+  }, [isValidUser, userId,setIsValidUser]);
 
   if (isValidUser) {
     return <Navigate to="/" replace={true} />;

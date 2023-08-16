@@ -1,25 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import fetchFromApi from "../../../fetchFromApi";
 import { MdDeleteOutline } from "react-icons/md";
 
 const PostImage = ({ postId, userId, setAllposts }) => {
   const [postDetails, setPostDetails] = useState(null);
-  const getPostData = async () => {
-    const response = await fetchFromApi(`/api/post/${postId}/${userId}`, "GET");
-   
-    if (response.ok) {
-      const data = await response.json();
-
-      setPostDetails(data);
-    } else {
-      setPostDetails([]);
-    }
-  };
 
   useEffect(() => {
+    const getPostData = async () => {
+      const response = await fetchFromApi(
+        `/api/post/${postId}/${userId}`,
+        "GET"
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setPostDetails(data);
+      } else {
+        setPostDetails([]);
+      }
+    };
     getPostData();
-  }, [postId]);
+  }, [userId, postId]);
 
   const deletePost = async () => {
     const response = await fetchFromApi(
@@ -28,7 +30,7 @@ const PostImage = ({ postId, userId, setAllposts }) => {
     );
 
     if (response.ok) {
-      const data = await response.json();
+      await response.json();
       setAllposts((prev) => {
         const filteredPosts = prev?.filter((id) => id !== postId);
         return filteredPosts;
@@ -36,10 +38,8 @@ const PostImage = ({ postId, userId, setAllposts }) => {
     }
   };
 
-
   if (postDetails) {
     const { _id, media } = postDetails;
-   
 
     return (
       <li key={_id} className="post">
@@ -51,7 +51,9 @@ const PostImage = ({ postId, userId, setAllposts }) => {
               alt={`Post `}
             />
           )}
-          {media?.mediaType === "video" && <video src={media?.mediaUrl}   className="post-media post-video" />}
+          {media?.mediaType === "video" && (
+            <video src={media?.mediaUrl} className="post-media post-video" />
+          )}
           <p>{}</p>
         </div>
         <button
@@ -59,7 +61,7 @@ const PostImage = ({ postId, userId, setAllposts }) => {
           className="post-delete-button"
           onClick={deletePost}
         >
-          <MdDeleteOutline className="delete-icon"/>
+          <MdDeleteOutline className="delete-icon" />
         </button>
       </li>
     );

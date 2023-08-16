@@ -7,23 +7,24 @@ import "./index.css";
 const SharedPostMessage = ({ post }) => {
   const { userId } = post;
   const [userDetails, setUserDetails] = useState(null);
-  const getUserData = async () => {
-    const response = await fetchFromApi(`/api/user/${userId}`, "GET");
-    if (response.ok) {
-      const data = await response.json();
-      setUserDetails(data?.user);
-    } else {
-      setUserDetails(null);
-    }
-  };
 
   useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetchFromApi(`/api/user/${userId}`, "GET");
+      if (response.ok) {
+        const data = await response.json();
+        setUserDetails(data?.user);
+      } else {
+        setUserDetails(null);
+      }
+    };
+
     getUserData();
-  }, []);
+  }, [userId]);
 
   if (userDetails && post) {
-    const { userImage, _id: userId, userName } = userDetails;
-    const { media, date } = post;
+    const { userImage, userName } = userDetails;
+    const { media } = post;
     const { mediaType, mediaUrl } = media;
     return (
       <div className="share-post-message">
