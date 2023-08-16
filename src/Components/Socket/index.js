@@ -109,7 +109,7 @@ const Socket = (props) => {
     localPeerConnection.current.addEventListener(
       "connectionstatechange",
       (event) => {
-        if (peerConnection.connectionState === "connected") {
+        if (localPeerConnection.connectionState === "connected") {
           // Peers connected!
           console.log("peers connected");
         }
