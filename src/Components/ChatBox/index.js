@@ -19,7 +19,7 @@ import "./index.css";
 const ChatBox = () => {
   const { isVideoCallActive, setVideoCallActiveStatus } =
     useContext(AppContext);
-  const { socket, accessVideoAndAudio, myStream, makeVideoCall } =
+  const { socket, accessVideoAndAudio, makeVideoCall } =
     useContext(SocketContext);
 
   const { recipientId } = useParams();
@@ -37,11 +37,17 @@ const ChatBox = () => {
   const chatListsBox = useRef();
 
   useLayoutEffect(() => {
+    const getUserData = async () => {
+      const response = await fetchFromApi(`/api/user/${recipientId}`, "GET");
+      if (response.ok) {
+        const data = await response.json();
+        setChatUserDetails(data?.user);
+      }
+    };
     getUserData();
-  }, []);
+  }, [recipientId]);
 
   useEffect(() => {
-    
     if (chatConversation?.length > 0) {
       moveToBottom();
     }
@@ -74,64 +80,28 @@ const ChatBox = () => {
     if (socket) {
       configureSocketListeners();
     }
-  }, []);
-
-  const getUserData = async () => {
-    const response = await fetchFromApi(`/api/user/${recipientId}`, "GET");
-    if (response.ok) {
-      const data = await response.json();
-      setChatUserDetails(data?.user);
-    }
-  };
+  }, [socket]);
 
   useEffect(() => {
     if (conversationId) {
+      const fetchChats = () => {
+        const fetch = async () => {
+          const response = await fetchFromApi(
+            `/api/message/${conversationId}`,
+            "GET"
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            setChatConversation(data);
+          }
+        };
+        fetch();
+      };
+
       fetchChats();
     }
   }, [conversationId]);
-
-  const getOrCreateConversation = async () => {
-    const response = await fetchFromApi(
-      `/api/conversation/${senderId}/${recipientId}`,
-      "GET"
-    );
-
-    if (response.status === 204) {
-      await addConversation();
-    } else if (response.status === 200) {
-      const conversation = await response.json();
-      setConversationId(conversation?._id);
-    }
-  };
-
-  const addConversation = async () => {
-    const object = { senderId, recipientId };
-    const response = await fetchFromApi(
-      `/api/conversation/${senderId}/${recipientId}`,
-      "POST",
-      object
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      setConversationId(data?._id);
-    }
-  };
-
-  const fetchChats = () => {
-    const fetch = async () => {
-      const response = await fetchFromApi(
-        `/api/message/${conversationId}`,
-        "GET"
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        setChatConversation(data);
-      }
-    };
-    fetch();
-  };
 
   const addMessage = async () => {
     const text = contentInput.current.value;
@@ -142,7 +112,6 @@ const ChatBox = () => {
     );
 
     if (response.ok) {
-      const data = await response.json();
       socket.emit("sendMessage", {
         senderId,
         text,
@@ -161,8 +130,36 @@ const ChatBox = () => {
   };
 
   useEffect(() => {
+    const addConversation = async () => {
+      const object = { senderId, recipientId };
+      const response = await fetchFromApi(
+        `/api/conversation/${senderId}/${recipientId}`,
+        "POST",
+        object
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setConversationId(data?._id);
+      }
+    };
+
+    const getOrCreateConversation = async () => {
+      const response = await fetchFromApi(
+        `/api/conversation/${senderId}/${recipientId}`,
+        "GET"
+      );
+
+      if (response.status === 204) {
+        await addConversation();
+      } else if (response.status === 200) {
+        const conversation = await response.json();
+        setConversationId(conversation?._id);
+      }
+    };
+
     getOrCreateConversation();
-  }, [recipientId, getOrCreateConversation]);
+  }, [recipientId,senderId]);
 
   useEffect(() => {
     const configuration = {

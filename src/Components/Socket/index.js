@@ -32,7 +32,7 @@ const Socket = (props) => {
 
       setSocketIo(socketIO);
     }
-  }, []);
+  }, [socketIoUrl]);
 
   useEffect(() => {
     if (socket) {
