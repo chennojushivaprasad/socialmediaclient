@@ -1,17 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./index.css";
 import UserDetails from "../UserDetails";
 import SearchBar from "./SearchBar";
 import { AppContext } from "../../Context";
 import { Follow } from "../Follow";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Search = () => {
   const { searchResults, setActiveMenuId, setSearchResults } =
     useContext(AppContext);
 
+  useEffect(() => {
+    window.document.body.overflow = "hidden";
+  }, []);
+
+  const closeModal = () => {
+    setSearchResults(null);
+  };
   return (
     <div className="search">
-      <h1 className="search-heading">Search</h1>
+      <div className="search-header">
+        <h1 className="search-heading">Search</h1>
+        <button
+          type="button"
+          className="small-screen-close-modal-button"
+          onClick={closeModal}
+        >
+          <AiOutlineClose className="close-modal-icon" />
+        </button>
+      </div>
       <div className="searchbar">
         <SearchBar />
       </div>

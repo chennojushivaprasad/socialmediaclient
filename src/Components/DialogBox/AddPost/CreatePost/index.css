@@ -112,11 +112,7 @@
 }
 
 @media (max-width: 576px) {
-  .create-post-dialog-box {
-    padding-top: 20px;
-    justify-content: flex-start;
-  }
-  
+
   .dialog-box {
     width: calc(100% - 20px);
     height: calc(100% - 250px);

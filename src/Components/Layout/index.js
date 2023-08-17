@@ -24,12 +24,11 @@ const Layout = (props) => {
   if (isValidUser) {
     return (
       <div className="app-container">
-        {(activeMenuId !== "REELS" || activeMenuId !== "MESSAGES") && <Header />}
-        {uploadStatus && <UploadingProgressBar />}
-
+        {activeMenuId === "HEADER" && <Header />}
+        {uploadStatus && activeMenuId === "HOME" && <UploadingProgressBar />}
         {activeModalId === "SEARCH" && <Search />}
         {activeModalId === "CREATE" && <CreatePost />}
-        {isActiveshareModal &&  <ShareDialogBox/>}
+        {isActiveshareModal && <ShareDialogBox />}
         <div className="main-content">
           <Sidebar />
           {props.children}

@@ -1,22 +1,21 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 // import SideBar from "../Sidebar";
 // import { categoryMenus } from "../../constansts";
-import  fetchFromApi  from "../../fetchFromApi.js";
+import fetchFromApi from "../../fetchFromApi.js";
 import { PostCard } from "../PostCard";
 import SideBarColumn from "../SideBarColumn";
 
 const Home = () => {
+  const [postsData, setPostsData] = useState([]);
 
-  const [postsData,setPostsData] = useState([])
-  
- 
   // const Navigate = useNavigate();
 
   useEffect(() => {
-   fetchFromApi("/api/post/","GET").then((response)=> response.ok ? response.json() :[]).then((data)=> setPostsData(data))
+    fetchFromApi("/api/post/", "GET")
+      .then((response) => (response.ok ? response.json() : []))
+      .then((data) => setPostsData(data));
   }, []);
-
 
   // if (activeMenuId) {
   //   const category = categoryMenus.filter(
@@ -30,31 +29,28 @@ const Home = () => {
 
   return (
     <>
-   {/* <Header/> */}
-   {/* { <p className="upload-status-file">{uploadPercent}%</p>} */}
-    <div className="home">
-   
-      {/* <SideBar /> */}
-  
-      
-      {/* <div className="main-container"> */}
+      {/* <Header/> */}
+      {/* { <p className="upload-status-file">{uploadPercent}%</p>} */}
+      <div className="home">
+        {/* <SideBar /> */}
+
+        {/* <div className="main-container"> */}
         <div className="posts-container">
           {/* <div className="posts-status">status</div> */}
           <div className="posts-display-container">
-            <ul className="posts">{
-              postsData?.posts?.map((post) =>{
-                return <PostCard post={post} /> })
-            }</ul>
+            <ul className="posts">
+              {postsData?.posts?.map((post) => {
+                return <PostCard post={post} />;
+              })}
+            </ul>
           </div>
         </div>
-        <SideBarColumn/>
+        <SideBarColumn />
       </div>
-      
-    {/* </div> */}
 
-    {/* <BottomNavigationBar/> */}
-   
-      
+      {/* </div> */}
+
+      {/* <BottomNavigationBar/> */}
     </>
   );
 };

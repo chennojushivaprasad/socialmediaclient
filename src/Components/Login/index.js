@@ -54,6 +54,7 @@ const Login = () => {
     if (userId) {
       const getUserData = async () => {
         const response = await fetchFromApi(`/api/user/${userId}`, "GET");
+        console.log(response)
         if (response.ok) {
           setIsValidUser(true);
         }

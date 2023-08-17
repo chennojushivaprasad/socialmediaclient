@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useContext, useState } from "react";
 import "./index.css";
 import fetchFromApi from "../../../fetchFromApi";
 import { MdDeleteOutline } from "react-icons/md";
+import { AppContext } from "../../../Context";
 
 const PostImage = ({ postId, userId, setAllposts }) => {
+  const { accountUser } = useContext(AppContext);
   const [postDetails, setPostDetails] = useState(null);
 
   useEffect(() => {
@@ -56,13 +58,15 @@ const PostImage = ({ postId, userId, setAllposts }) => {
           )}
           <p>{}</p>
         </div>
-        <button
-          type="button"
-          className="post-delete-button"
-          onClick={deletePost}
-        >
-          <MdDeleteOutline className="delete-icon" />
-        </button>
+        {accountUser?._id === userId && (
+          <button
+            type="button"
+            className="post-delete-button"
+            onClick={deletePost}
+          >
+            <MdDeleteOutline className="delete-icon" />
+          </button>
+        )}
       </li>
     );
   }

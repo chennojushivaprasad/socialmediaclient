@@ -13,6 +13,11 @@
   z-index: 100000;
 }
 
+.search-header{
+  box-sizing: border-box;
+  height: 50px;
+}
+
 .search-heading {
   font-size: 2rem;
 }
@@ -53,5 +58,7 @@
     left: 0;
     height: 100vh;
     width: 100%;
+    border: none;
+    border-radius: 0;
   }
 }

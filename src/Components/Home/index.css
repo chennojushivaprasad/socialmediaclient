@@ -25,6 +25,7 @@
 .posts{
     width: 100%;
     max-width: 500px;
+    padding: 10px 0;
 }
 
 .upload-status-file{
